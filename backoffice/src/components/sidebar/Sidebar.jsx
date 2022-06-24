@@ -12,27 +12,41 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import {Link} from "react-router-dom";
+import { DarkModeContext } from '../../context/darkModeContex';
+import { useContext } from 'react';
 
 const Sidebar = () => {
+    const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
     
     <div className="top">
+        <Link to="/" style={{textDecoration:"none"}} >
         <span className="logo">WebFusion</span>
+        </Link>
     </div>
    <hr />
     <div className="center">
         <ul>
             <p className="tittle">MAIN</p>
+           
+            <Link to="/" style={{textDecoration:"none"}} >
             <li>
                 <DashboardIcon className="icon"/>
                 <span>Dashboard</span>
             </li>
+            </Link>
+
             <p className="tittle">LIST</p>
+            
+            <Link to="/users" style={{textDecoration:"none"}} >
             <li>
                 <PersonOutlineOutlinedIcon className="icon"/>
                 <span>Users</span>
             </li>
+            </Link>
+           
             <li>
                 <CreditCardRoundedIcon className="icon"/>
                 <span>Orders</span>
@@ -41,10 +55,14 @@ const Sidebar = () => {
                 <EmailRoundedIcon className="icon"/>
                 <span>Messages</span>
             </li>
+            
+            <Link to="/products" style={{textDecoration:"none"}} >
             <li>
                 <StoreMallDirectoryRoundedIcon className="icon"/>
                 <span>Product</span>
             </li>
+            </Link>
+            
             <li>
                 <LocalShippingRoundedIcon className="icon"/>
                 <span>Delivery</span>
@@ -84,8 +102,8 @@ const Sidebar = () => {
     </div>
    
     <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
+        <div className="colorOption" onClick={() => dispatch({type: 'LIGHT'})}></div>
+        <div className="colorOption" onClick={() => dispatch({type: 'DARK'})}></div>
     </div>
     
     </div>
