@@ -5,7 +5,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
 const Navbar = () => {
   return (
@@ -41,7 +41,7 @@ const Navbar = () => {
         </div>
         
         <div className="item">
-        <ListOutlinedIcon className="icon"/>
+        <FormatListBulletedOutlinedIcon className="icon"/>
         </div>
        
         <div className="item">
