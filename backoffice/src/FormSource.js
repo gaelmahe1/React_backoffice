@@ -3,48 +3,48 @@
 export const userInputs = [
 
 { 
-id: 1,
+id: "username",
 label: "Username",
 type: "text",
 placeholder: "mickey04"
 },
 
 { 
-id: 2,
+id: "displayName",
 label: "Name and Surname",
 type: "text",
 placeholder: "Mickey Duhag"
 },
 
 { 
-id: 3,
+id: "email",
 label: "Email",
 type: "email",
 placeholder: "duhagmickey@gmail.com"
 },
 
 { 
-id: 4,
+id: "phone",
 label: "Phone",
 type: "text",
 placeholder: "+33 623 34 74 27"
 },
 
 { 
-id: 5,
+id: "password",
 label: "Password",
 type: "password",
 },
 
 { 
-id: 6,
+id: "adress",
 label: "Adress",
 type: "text",
 placeholder: "16 rue richebourgs 78500 Sartrouville"
 },
 
 { 
-id: 7,
+id: "country",
 label: "Country",
 type: "text",
 placeholder: "France"
