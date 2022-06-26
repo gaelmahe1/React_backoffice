@@ -7,11 +7,14 @@ import { addDoc, collection, doc, serverTimestamp, setDoc } from "firebase/fires
 import { auth, db, storage } from '../../firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useNavigate } from 'react-router-dom';
 
 
 const New = ({inputs,title}) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
+  const [perc, setPerc] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const uploadFile = ()=> {
@@ -24,6 +27,7 @@ uploadTask.on('state_changed',
   (snapshot) => {
 
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    setPerc(progress)
     console.log('Upload is ' + progress + '% done');
     switch (snapshot.state) {
       case 'paused':
@@ -71,7 +75,7 @@ console.log(data)
       ...data,
        timeStamp: serverTimestamp(),
       });
-      
+      navigate(-1)
     }catch (err) {
   console.log(err)
     }
@@ -105,7 +109,7 @@ console.log(data)
         <input type={input.type}  id={input.id} placeholder={input.placeholder} onChange={handleInput} />
       </div>
         ))}
-      <button type="submit">Send</button>  
+      <button disabled={perc !== null && perc < 100} type="submit">Send</button>  
       
         </form>
       </div>
